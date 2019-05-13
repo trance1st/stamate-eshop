@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        
+        <div>
+            <ul class="nav justify-content-end shadow-lg p-3 mb-5 bg-white rounded">
+                <li class="nav-item">
+                    <a class="nav-link active" href="welcomepage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="magazinpage">Magazin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registerpage.html">Register</a>
+                </li>
+                <li th:if="${!logged}" class="nav-item">
+                    <a class="nav-link" href="loginpage.html">Login</a>
+                </li>
+                <li th:if="${logged}" class="nav-item">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+    
+        <div class="container">
+            <div  class="row">
+                <div th:each="p : ${products}" class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                    <img style="height: 200px" src="equalizere.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 th:text="${p.name}" class="card-title"></h5>
+                            <p th:text="${p.description}" class="card-text"></p>
+                            <a href="stocequalizerepage" class="btn btn-primary">Vezi equalizere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+  
+
+    </body>
+
+</html>
